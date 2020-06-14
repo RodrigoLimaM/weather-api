@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Service
 public class DateConversionService {
 
+    //TODO fix year bug
     public LocalDate convertDate(String date) {
         date += "/0";
         String[] yearMonthDay = date.split("/");

@@ -4,11 +4,12 @@ import lombok.Data;
 
 @Data
 public class HGForecastResponse {
-    Integer max;
 
-    Integer min;
+    private Integer max;
 
-    String date;
+    private Integer min;
 
-    String description;
+    private String date;
+
+    private String description;
 }
