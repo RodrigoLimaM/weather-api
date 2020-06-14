@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class HGResponse {
 
-    String by;
+    private String by;
 
-    HGResultsResponse results;
+    private HGResultsResponse results;
 }

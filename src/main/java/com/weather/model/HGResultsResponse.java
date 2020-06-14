@@ -7,9 +7,9 @@ import java.util.List;
 @Data
 public class HGResultsResponse {
 
-    Integer temp;
+    private Integer temp;
 
-    String description;
+    private String description;
 
-    List<HGForecastResponse> forecast;
+    private List<HGForecastResponse> forecast;
 }
