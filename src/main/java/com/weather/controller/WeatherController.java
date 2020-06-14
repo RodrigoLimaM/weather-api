@@ -1,6 +1,7 @@
 package com.weather.controller;
 
-import com.weather.model.response.WeatherResponse;
+import com.weather.model.HGResponse;
+import com.weather.model.WeatherDTO;
 import com.weather.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class WeatherController {
     WeatherService weatherService;
 
     @GetMapping
-    public ResponseEntity<WeatherResponse> getWeatherData(@RequestParam String city){
+    public ResponseEntity<WeatherDTO> getWeatherData(@RequestParam String city){
         return ResponseEntity.ok().body(weatherService.getWeatherData(city));
     }
 }

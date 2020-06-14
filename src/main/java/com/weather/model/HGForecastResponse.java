@@ -1,9 +1,9 @@
-package com.weather.model.response;
+package com.weather.model;
 
 import lombok.Data;
 
 @Data
-public class WheatherForecastResponse {
+public class HGForecastResponse {
     Integer max;
 
     Integer min;
