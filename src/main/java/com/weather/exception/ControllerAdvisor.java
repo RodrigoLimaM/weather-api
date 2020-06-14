@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @ControllerAdvice
@@ -22,5 +23,15 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         body.put("message", "City name not found");
 
         return new ResponseEntity<>(body, NOT_FOUND);
+    }
+
+    @ExceptionHandler(TemperatureTypeBadRequestException.class)
+    public ResponseEntity<Object> handleInvalidTemperatureTypeException() {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", BAD_REQUEST.value());
+        body.put("message", "Invalid temperature type");
+
+        return new ResponseEntity<>(body, BAD_REQUEST);
     }
 }

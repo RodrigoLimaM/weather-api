@@ -1,11 +1,11 @@
-package com.weather.service.util;
+package com.weather.util;
 
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
 @Service
-public class DateConversionService {
+public class DateConversion {
 
     //TODO fix year bug
     public LocalDate convertDate(String date) {

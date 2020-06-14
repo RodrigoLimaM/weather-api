@@ -2,7 +2,6 @@ package com.weather.service;
 
 import com.weather.client.HGClient;
 import com.weather.exception.CityNameNotFoundException;
-import com.weather.model.HGResponse;
 import com.weather.model.WeatherDTO;
 import com.weather.model.mapper.WeatherDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,18 +12,28 @@ import org.springframework.stereotype.Service;
 public class WeatherService {
 
     @Autowired
-    HGClient HGClient;
+    HGClient hgClient;
 
     @Autowired
     WeatherDTOMapper weatherDTOMapper;
 
+    @Autowired
+    TemperatureConversionService temperatureConversionService;
+
     @Value("${hgbrasil-weather.key}")
     String apiKey;
 
-    public WeatherDTO getWeatherData(String city) {
-        var weatherResponse = HGClient.getHGWeather(apiKey, city);
-        if(weatherResponse.getBy().equals("default"))
+    public WeatherDTO getWeatherData(String city, String temperatureType) {
+        var hgResponse = hgClient.getHGWeather(apiKey, city);
+
+        if(hgResponse.getBy().equals("default"))
             throw new CityNameNotFoundException();
-        return weatherDTOMapper.mapHGResponseToDTO(weatherResponse.getResults());
+
+        var dtoResponse = weatherDTOMapper.mapHGResponseToDTO(hgResponse.getResults());
+
+        dtoResponse = temperatureConversionService.convert(dtoResponse, temperatureType);
+
+        return dtoResponse;
     }
+
 }

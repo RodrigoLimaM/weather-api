@@ -9,9 +9,11 @@ import java.util.List;
 @Builder
 public class WeatherDTO {
 
-    public Integer currentTemperature;
+    private String temperatureType;
 
-    public String descripton;
+    private Integer currentTemperature;
 
-    public List<WeatherForecast> weatherForecast;
+    private String description;
+
+    private List<WeatherForecast> weatherForecast;
 }
