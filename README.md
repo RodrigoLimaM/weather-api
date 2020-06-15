@@ -16,7 +16,7 @@ Api made to consume data from HG Weather (https://hgbrasil.com/status/weather) a
    `city={String}`
 
    **Optional:**
-    ##### Thermometric scale on which the temperature will be displayed	
+    ##### Thermometric scale on which the temperature will be displayed:	
    `temperatureType={String}`
     ##### Types:
    `celsius` | `fahrenheit` | `kelvin`

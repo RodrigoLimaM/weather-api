@@ -20,6 +20,7 @@ public class WeatherDTOMapper {
     public WeatherDTO mapHGResponseToDTO(HGResultsResponse hgResultsResponse) {
         return WeatherDTO
                 .builder()
+                .temperatureType("celsius")
                 .currentTemperature(hgResultsResponse.getTemp())
                 .description(hgResultsResponse.getDescription())
                 .weatherForecast(mapHGForecastListResponseToDTO(hgResultsResponse.getForecast()))
