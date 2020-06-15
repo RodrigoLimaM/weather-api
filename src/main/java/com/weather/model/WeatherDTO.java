@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 public class WeatherDTO {
 
-    @ApiModelProperty(example = "celsius")
+    @ApiModelProperty(example = "CELSIUS")
     private TemperatureTypeEnum temperatureType;
 
     @ApiModelProperty(example = "31")
