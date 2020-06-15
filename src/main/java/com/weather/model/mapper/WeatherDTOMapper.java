@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.weather.model.enums.TemperatureTypeEnum.CELSIUS;
+
 @Component
 public class WeatherDTOMapper {
 
@@ -20,7 +22,7 @@ public class WeatherDTOMapper {
     public WeatherDTO mapHGResponseToDTO(HGResultsResponse hgResultsResponse) {
         return WeatherDTO
                 .builder()
-                .temperatureType("celsius")
+                .temperatureType(CELSIUS)
                 .currentTemperature(hgResultsResponse.getTemp())
                 .description(hgResultsResponse.getDescription())
                 .weatherForecast(mapHGForecastListResponseToDTO(hgResultsResponse.getForecast()))

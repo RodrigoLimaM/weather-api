@@ -1,5 +1,6 @@
 package com.weather.model;
 
+import com.weather.model.enums.TemperatureTypeEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.util.List;
 public class WeatherDTO {
 
     @ApiModelProperty(example = "celsius")
-    private String temperatureType;
+    private TemperatureTypeEnum temperatureType;
 
     @ApiModelProperty(example = "31")
     private Integer currentTemperature;

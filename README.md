@@ -27,7 +27,7 @@ Api made to consume data from HG Weather (https://hgbrasil.com/status/weather) a
         **Content:**
     ```
     {
-       "temperatureType":"celsius",
+       "temperatureType":"CELSIUS",
        "currentTemperature":15,
        "description":"Tempo nublado",
        "weatherForecast":[

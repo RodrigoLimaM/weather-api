@@ -3,6 +3,7 @@ package com.weather.service;
 import com.weather.client.HGClient;
 import com.weather.exception.CityNameNotFoundException;
 import com.weather.model.WeatherDTO;
+import com.weather.model.enums.TemperatureTypeEnum;
 import com.weather.model.mapper.WeatherDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +32,8 @@ public class WeatherService {
 
         var dtoResponse = weatherDTOMapper.mapHGResponseToDTO(hgResponse.getResults());
 
-        dtoResponse = temperatureConversionService.convert(dtoResponse, temperatureType);
+        dtoResponse = temperatureConversionService.convert(dtoResponse,
+                TemperatureTypeEnum.valueOf(temperatureType.toUpperCase()));
 
         return dtoResponse;
     }
