@@ -4,8 +4,6 @@ import com.weather.model.HGForecastResponse;
 import com.weather.model.HGResultsResponse;
 import com.weather.model.WeatherDTO;
 import com.weather.model.WeatherForecast;
-import com.weather.util.DateConversion;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,9 +13,6 @@ import static com.weather.model.enums.TemperatureTypeEnum.CELSIUS;
 
 @Component
 public class WeatherDTOMapper {
-
-    @Autowired
-    DateConversion dateConversion;
 
     public WeatherDTO mapHGResponseToDTO(HGResultsResponse hgResultsResponse) {
         return WeatherDTO
@@ -41,7 +36,7 @@ public class WeatherDTOMapper {
                 .builder()
                 .max(forecast.getMax())
                 .min(forecast.getMin())
-                .date(dateConversion.convertDate(forecast.getDate()))
+                .date(forecast.getDate())
                 .description(forecast.getDescription())
                 .build();
     }

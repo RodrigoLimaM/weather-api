@@ -4,14 +4,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @Data
 @Builder
 public class WeatherForecast {
 
-    @ApiModelProperty(example = "2020-06-14")
-    private LocalDate date;
+    @ApiModelProperty(example = "18/06")
+    private String date;
 
     @ApiModelProperty(example = "30")
     private Integer max;
