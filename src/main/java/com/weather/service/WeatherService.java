@@ -2,6 +2,7 @@ package com.weather.service;
 
 import com.weather.client.HGClient;
 import com.weather.exception.CityNameNotFoundException;
+import com.weather.model.HGResponse;
 import com.weather.model.WeatherDTO;
 import com.weather.model.enums.TemperatureTypeEnum;
 import com.weather.model.mapper.WeatherDTOMapper;
@@ -25,12 +26,12 @@ public class WeatherService {
     String apiKey;
 
     public WeatherDTO getWeatherData(String city, String temperatureType) {
-        var hgResponse = hgClient.getHGWeather(apiKey, city);
+        HGResponse hgResponse = hgClient.getHGWeather(apiKey, city);
 
         if(hgResponse.getBy().equals("default"))
             throw new CityNameNotFoundException();
 
-        var dtoResponse = weatherDTOMapper.mapHGResponseToDTO(hgResponse.getResults());
+        WeatherDTO dtoResponse = weatherDTOMapper.mapHGResponseToDTO(hgResponse.getResults());
 
         dtoResponse = temperatureConversionService.convert(dtoResponse,
                 TemperatureTypeEnum.valueOf(temperatureType.toUpperCase()));

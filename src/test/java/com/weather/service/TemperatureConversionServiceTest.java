@@ -20,13 +20,13 @@ public class TemperatureConversionServiceTest {
 
     @Test
     public void convert(){
-        var expectedFahrenheit = WeatherDTO.builder().currentTemperature(86).description("Teste").temperatureType(FAHRENHEIT).weatherForecast(new ArrayList<>()).build();
+        WeatherDTO expectedFahrenheit = WeatherDTO.builder().currentTemperature(86).description("Teste").temperatureType(FAHRENHEIT).weatherForecast(new ArrayList<>()).build();
 
-        var actualFahrenheit = WeatherDTO.builder().currentTemperature(30).description("Teste").temperatureType(FAHRENHEIT).weatherForecast(new ArrayList<>()).build();
+        WeatherDTO actualFahrenheit = WeatherDTO.builder().currentTemperature(30).description("Teste").temperatureType(FAHRENHEIT).weatherForecast(new ArrayList<>()).build();
 
-        var expectedKelvin = WeatherDTO.builder().currentTemperature(303).description("Teste").temperatureType(KELVIN).weatherForecast(new ArrayList<>()).build();
+        WeatherDTO expectedKelvin = WeatherDTO.builder().currentTemperature(303).description("Teste").temperatureType(KELVIN).weatherForecast(new ArrayList<>()).build();
 
-        var actualKelvin = WeatherDTO.builder().currentTemperature(30).description("Teste").temperatureType(KELVIN).weatherForecast(new ArrayList<>()).build();
+        WeatherDTO actualKelvin = WeatherDTO.builder().currentTemperature(30).description("Teste").temperatureType(KELVIN).weatherForecast(new ArrayList<>()).build();
 
         assertEquals(expectedFahrenheit, temperatureConversionService.convert(actualFahrenheit, FAHRENHEIT));
         assertEquals(expectedKelvin, temperatureConversionService.convert(actualKelvin, KELVIN));

@@ -15,7 +15,7 @@
 	<description>API for study purposes, consuming the HG Brasil weather API.</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<spring-cloud.version>Hoxton.BUILD-SNAPSHOT</spring-cloud.version>
 	</properties>
 

@@ -20,9 +20,9 @@ public class WeatherDTOMapperTest {
 
     @Test
     public void mapHGResponseToDTO() {
-        var expect = WeatherDTO.builder().currentTemperature(30).description("Teste").temperatureType(CELSIUS).weatherForecast(new ArrayList<>()).build();
+        WeatherDTO expect = WeatherDTO.builder().currentTemperature(30).description("Teste").temperatureType(CELSIUS).weatherForecast(new ArrayList<>()).build();
 
-        var actual = HGResultsResponse.builder().description("Teste").temp(30).forecast(new ArrayList<>()).build();
+        HGResultsResponse actual = HGResultsResponse.builder().description("Teste").temp(30).forecast(new ArrayList<>()).build();
         assertEquals(expect, weatherDTOMapper.mapHGResponseToDTO(actual));
     }
 }
