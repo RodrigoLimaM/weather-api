@@ -1,1 +1,1 @@
-web:java -Dserver.port=$PORT $JAVA_OPTS -jar target/weather-0.0.1-SNAPSHOT.jar
+web: java -jar target/myapp-1.0.0.jar
