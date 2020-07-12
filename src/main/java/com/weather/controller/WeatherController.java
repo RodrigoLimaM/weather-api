@@ -22,9 +22,4 @@ public class WeatherController {
              @RequestParam(defaultValue = "celsius", required = false) String temperatureType){
         return ResponseEntity.ok().body(weatherService.getWeatherData(city, temperatureType));
     }
-
-    @GetMapping("/test")
-    public ResponseEntity<String> testEndpoint(){
-        return ResponseEntity.ok().body("Teste");
-    }
 }
