@@ -14,9 +14,4 @@ public class WeatherApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WeatherApplication.class, args);
 	}
-
-	@Bean
-	Level feignLoggerLevel() {
-		return Level.FULL;
-	}
 }
