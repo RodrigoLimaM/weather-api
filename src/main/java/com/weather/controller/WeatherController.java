@@ -20,6 +20,8 @@ public class WeatherController {
     public ResponseEntity<WeatherDTO> getWeatherData
             (@RequestParam String city,
              @RequestParam(defaultValue = "celsius", required = false) String temperatureType){
-        return ResponseEntity.ok().body(weatherService.getWeatherData(city, temperatureType));
+        return weatherService.getWeatherData(city, temperatureType)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.noContent().build());
     }
 }

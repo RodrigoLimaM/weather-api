@@ -25,7 +25,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, NOT_FOUND);
     }
 
-    @ExceptionHandler(TemperatureTypeBadRequestException.class)
+    @ExceptionHandler(UnknownTemperatureTypeException.class)
     public ResponseEntity<Object> handleInvalidTemperatureTypeException() {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());

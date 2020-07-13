@@ -1,20 +1,17 @@
 package com.weather.service;
 
-import com.weather.client.HGClient;
-import com.weather.exception.CityNameNotFoundException;
-import com.weather.model.HGResponse;
 import com.weather.model.WeatherDTO;
-import com.weather.model.enums.TemperatureTypeEnum;
 import com.weather.model.mapper.WeatherDTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class WeatherService {
 
     @Autowired
-    HGClient hgClient;
+    HGService hgService;
 
     @Autowired
     WeatherDTOMapper weatherDTOMapper;
@@ -22,21 +19,11 @@ public class WeatherService {
     @Autowired
     TemperatureConversionService temperatureConversionService;
 
-    @Value("${hgbrasil-weather.key}")
-    String apiKey;
+    public Optional<WeatherDTO> getWeatherData(String city, String temperatureType) {
 
-    public WeatherDTO getWeatherData(String city, String temperatureType) {
-        HGResponse hgResponse = hgClient.getHGWeather(apiKey, city);
-
-        if(hgResponse.getBy().equals("default"))
-            throw new CityNameNotFoundException();
-
-        WeatherDTO dtoResponse = weatherDTOMapper.mapHGResponseToDTO(hgResponse.getResults());
-
-        dtoResponse = temperatureConversionService.convert(dtoResponse,
-                TemperatureTypeEnum.valueOf(temperatureType.toUpperCase()));
-
-        return dtoResponse;
+        return hgService.getHGResults(city)
+                .map(hgResultsResponse -> weatherDTOMapper.mapHGResponseToDTO(hgResultsResponse, temperatureType))
+                .map(temperatureConversionService::convert);
     }
 
 }
