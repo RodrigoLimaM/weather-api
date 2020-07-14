@@ -1,9 +1,10 @@
 package com.weather.model.mapper;
 
-import com.weather.model.HGForecastResponse;
-import com.weather.model.HGResultsResponse;
+import com.weather.model.HGResponse;
+import com.weather.model.HGResponse.HGForecastResponse;
+import com.weather.model.HGResponse.HGResultsResponse;
 import com.weather.model.WeatherDTO;
-import com.weather.model.WeatherForecast;
+import com.weather.model.WeatherDTO.WeatherForecast;
 import com.weather.service.conversion.TemperatureType;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,7 @@ public class WeatherDTOMapper {
                 .build();
     }
 
-    private TemperatureType setTemperatureType(String temperatureType) {
+    TemperatureType setTemperatureType(String temperatureType) {
         try {
             return TemperatureType.valueOf(temperatureType.toUpperCase());
         } catch (IllegalArgumentException ex) {

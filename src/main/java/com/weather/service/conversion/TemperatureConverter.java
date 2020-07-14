@@ -4,7 +4,7 @@ import com.weather.model.WeatherDTO;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface TemperatureConverter {
+interface TemperatureConverter {
 
     WeatherDTO convert(WeatherDTO dto);
 }

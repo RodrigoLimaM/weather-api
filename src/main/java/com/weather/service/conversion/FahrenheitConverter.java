@@ -4,19 +4,17 @@ import com.weather.model.WeatherDTO;
 
 import static com.weather.service.conversion.TemperatureType.FAHRENHEIT;
 
-public class FahrenheitConverter implements TemperatureConverter{
+class FahrenheitConverter implements TemperatureConverter{
 
     @Override
-    public WeatherDTO convert(WeatherDTO dtoResponse) {
-        dtoResponse.setTemperatureType(FAHRENHEIT);
-        dtoResponse.setCurrentTemperature(dtoResponse.getCurrentTemperature() * 9/5 + 32);
-        dtoResponse
-                .getWeatherForecast()
+    public WeatherDTO convert(WeatherDTO dto) {
+        dto.setTemperatureType(FAHRENHEIT);
+        dto.setCurrentTemperature(dto.getCurrentTemperature() * 9/5 + 32);
+        dto.getWeatherForecast()
                 .forEach(forecast -> forecast.setMax(forecast.getMax() * 9/5 + 32));
-        dtoResponse
-                .getWeatherForecast()
+        dto.getWeatherForecast()
                 .forEach(forecast -> forecast.setMin(forecast.getMin() * 9/5 + 32));
 
-        return dtoResponse;
+        return dto;
     }
 }

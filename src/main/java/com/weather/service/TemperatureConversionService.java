@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TemperatureConversionService {
 
-    public WeatherDTO convert(WeatherDTO dtoResponse) {
-        return dtoResponse.getTemperatureType().convert(dtoResponse);
+    public WeatherDTO convert(WeatherDTO dto) {
+        return dto.getTemperatureType().convert(dto);
     }
 
 }
