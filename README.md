@@ -118,5 +118,14 @@ Api made to consume data from HG Weather (https://hgbrasil.com/status/weather) a
   
 * **Sample Call:**
     ```
-    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET "http://localhost:8080/weather?city=orlando&temperatureType=fahrenheit"
+    curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET "https://weather-api1107.herokuapp.com/weather?city=orlando&temperatureType=celsius"
     ```
+  
+ * **Architecture:**
+ 
+    ![Alt text](https://user-images.githubusercontent.com/51386403/87380174-4c900900-c568-11ea-9eb2-15cccdf6183d.jpg "Architecture")
+    
+ * **Swagger Api Documentation:**
+ 
+    https://weather-api1107.herokuapp.com/swagger-ui.html
+ 
