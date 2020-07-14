@@ -1,7 +1,7 @@
 # Weather API
 
 
-Api made to consume data from HG Weather (https://hgbrasil.com/status/weather) api and format them.
+Api made to consume data from HG Weather (https://hgbrasil.com/status/weather) api, format and convert them.
 
 * **URL**\
 /weather
